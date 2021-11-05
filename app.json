@@ -22,22 +22,18 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "ios"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      },
-      "googleServicesFile":"./google-services.json"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins":[
-      "@react-native-firebase/app",
-      "@react-native-firebase/perf",
-      "@react-native-firebase/crashlytics"
-    ]
+    "entryPoint": "node_modules/expo/AppEntry.js"
   }
 }
