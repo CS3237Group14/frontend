@@ -73,17 +73,17 @@ function setupHighscoreListener() {
   const reference = ref(db, 'users/' + 'yinK7Dkc2lbPNhLxOSHiTTEkJiD3');
   onValue(reference, (snapshot) => {
     for (let i of Object.values(snapshot.val())) {
-      console.log("result", i.result)
+      // console.log("result", i.result)
       resultList.push(i.result);
     }
-    console.log("Not New high score: " + snapshot.val());
-    return resultList;
+    // console.log("Not New high score: " + snapshot.val());
   });
+  return resultList;
 }
 
 // export { auth };
 
-const MINUTE_MS = 4000;
+const MINUTE_MS = 2000;
 
 export default function SignUpContainer() {
 
@@ -150,7 +150,7 @@ useEffect(() => {
   const interval = setInterval(() => {
     console.log('Logs every minute');
     const results = setupHighscoreListener();
-    console.log("Every 4 seconds: ", results)
+    console.log("Every 4 seconds: ", results[results.length - 1])
     if (results) {
       setResult(results[0]);
     }
