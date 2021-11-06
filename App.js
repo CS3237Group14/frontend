@@ -9,6 +9,8 @@ import running from "./container/running"
 import walking from "./container/walking"
 import jumping from "./container/jumping"
 import Login from "./container/Login"
+import Activity from "./container/Activity"
+
 import no_activity from "./container/noactivity"
 // import Main from "./container/Main"
 import TermsCond from "./container/TermsCond"
@@ -34,6 +36,7 @@ function HomeScreen({navigation}) {
       <WhiteButton style={styles.button} onPress={() =>navigation.navigate('walking')}>Walking</WhiteButton>
       <WhiteButton style={styles.button} onPress={() =>navigation.navigate('jumping')}>Jumping</WhiteButton>
       <WhiteButton style={styles.button} onPress={() =>navigation.navigate('no_activity')}>No activity</WhiteButton>
+      <WhiteButton style={styles.button} onPress={() =>navigation.navigate('Activity')}>Activity</WhiteButton>
   </ScrollView>
       {/* <WhiteButton style={{    borderRadius:15,
         width: 200,
@@ -72,6 +75,7 @@ class App extends Component {
         <Stack.Screen name="walking" component={walking}/>
         <Stack.Screen name="jumping" component={jumping}/>
         <Stack.Screen name="no_activity" component={no_activity}/>
+        <Stack.Screen name="Activity" component={Activity}/>
 
         {/* <Stack.Screen name="Main"  options={{headerLeft:null}} component={Main}/>*/}
         <Stack.Screen name="Terms" component={TermsCond}/>
