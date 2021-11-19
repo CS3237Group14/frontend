@@ -1,10 +1,43 @@
 import React from 'react'
 import { View, Image,  Text, ActivityIndicator, StyleSheet,Dimensions } from 'react-native'
 import BlackButton from '../component/BlackButton';
-//import firebaseDb from '../firebaseDb';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Constants from 'expo-constants'
 import {Appbar, Title, Subheading, TextInput} from 'react-native-paper';
+
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import firebase from '../firebasedb';
+// import * as firebase from 'firebase/app';
+// import { initializeApp } from "firebase/app";
+// import { getDatabase, ref, set } from "firebase/database";
+// //import { initializeApp } from "firebase/app";
+// //import { getAnalytics } from "firebase/analytics";
+// //import { getDatabase } from "firebase/database";
+// // TODO: Add SDKs for Firebase products that you want to use
+// // https://firebase.google.com/docs/web/setup#available-libraries
+
+// // Your web app's Firebase configuration
+// // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// const firebaseConfig = {
+//   apiKey: "AIzaSyBdZuOO1qtHlAkfp4g4IBxXPJcltAcYHtw",
+//   authDomain: "motion-detection-40f42.firebaseapp.com",
+//   databaseURL: "https://motion-detection-40f42-default-rtdb.asia-southeast1.firebasedatabase.app",
+//   projectId: "motion-detection-40f42",
+//   storageBucket: "motion-detection-40f42.appspot.com",
+//   messagingSenderId: "163846818222",
+//   appId: "1:163846818222:web:2c967ba407c5086554e03f"
+// };
+
+// // Initialize Firebase
+// // let app;
+// // if (firebase.apps.length === 0) {
+// //   app = firebase.initializeApp(firebaseConfig);
+// // } else {
+// //   app = firebase.app()
+// // }
+// //firebase.initializeApp(firebaseConfig);
+// const app = initializeApp(firebaseConfig);
+ const auth = getAuth();
 class Login extends React.Component {
   state = {
     name: '',
@@ -21,26 +54,28 @@ class Login extends React.Component {
   handleUpdatePassword = password => this.setState({password})
 
   handleSignIn = () => {
-    firebaseDb.auth().signInWithEmailAndPassword(this.state.email, this.state.password) .then(() => 
-    this.props.navigation.navigate("Main")
-    // this.setState ({
-    //   name: '',
-    //   email: '',
-    //   password: '',
-    //   signIn: true,
-    //   exists: true})
-    )
-    .catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      if (errorCode === 'auth/wrong-password') {
-        alert('Wrong password.');
-      } else {
-        alert(errorMessage);
-      }
-      console.log(error);
-      });
+    signInWithEmailAndPassword(auth, this.state.email, this.state.password);
+    this.props.navigation.navigate("Activity");
+    // firebaseDb.auth().signInWithEmailAndPassword(this.state.email, this.state.password) .then(() => 
+    // this.props.navigation.navigate("Main")
+    // // this.setState ({
+    // //   name: '',
+    // //   email: '',
+    // //   password: '',
+    // //   signIn: true,
+    // //   exists: true})
+    // )
+    // .catch(function(error) {
+    //   // Handle Errors here.
+    //   var errorCode = error.code;
+    //   var errorMessage = error.message;
+    //   if (errorCode === 'auth/wrong-password') {
+    //     alert('Wrong password.');
+    //   } else {
+    //     alert(errorMessage);
+    //   }
+    //   console.log(error);
+    //   });
   }
       
 
@@ -71,7 +106,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#ffebcd'
+    backgroundColor: '#9FA0FF'
   },
   textInput: {
    // borderRadius: 5,

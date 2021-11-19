@@ -10,6 +10,7 @@ import walking from "./container/walking"
 import jumping from "./container/jumping"
 import Login from "./container/Login"
 import Activity from "./container/Activity"
+import Chart from "./container/chart"
 
 import no_activity from "./container/noactivity"
 // import Main from "./container/Main"
@@ -26,17 +27,19 @@ import BlackButton from './component/BlackButton';
 function HomeScreen({navigation}) {
   return (
 <SafeAreaView style={styles.container}>
-<Image style={styles.image} source={require('./assets/unnamed.png')}/>
-  <Text style={styles.textb}>PETCISE</Text>
+<Text style={styles.textb}>PETCISE</Text>
+<Image style={styles.image} source={require('./assets/cat-firstpage.gif')}/>
+  
   <Text style={styles.textn}>Let's get healthy !!</Text>
   <ScrollView style={styles.scrollview}>
       <WhiteButton style={styles.button} onPress={() =>navigation.navigate('SignUp')}>Sign Up</WhiteButton>
       <WhiteButton style={styles.button} onPress={() =>navigation.navigate('Login')}>Log In</WhiteButton>
-      <WhiteButton style={styles.button} onPress={() =>navigation.navigate('running')}>Running</WhiteButton>
+       {/* <WhiteButton style={styles.button} onPress={() =>navigation.navigate('Chart')}>Chart</WhiteButton>  */}
+      {/* <WhiteButton style={styles.button} onPress={() =>navigation.navigate('running')}>Running</WhiteButton>
       <WhiteButton style={styles.button} onPress={() =>navigation.navigate('walking')}>Walking</WhiteButton>
       <WhiteButton style={styles.button} onPress={() =>navigation.navigate('jumping')}>Jumping</WhiteButton>
       <WhiteButton style={styles.button} onPress={() =>navigation.navigate('no_activity')}>No activity</WhiteButton>
-      <WhiteButton style={styles.button} onPress={() =>navigation.navigate('Activity')}>Activity</WhiteButton>
+      <WhiteButton style={styles.button} onPress={() =>navigation.navigate('Activity')}>Activity</WhiteButton> */}
   </ScrollView>
       {/* <WhiteButton style={{    borderRadius:15,
         width: 200,
@@ -56,11 +59,11 @@ class App extends Component {
   
     // componentDidMount() {
     //   GoogleSignin.configure({
-    //     webClientId: '458566252197-f3juqgm6r2es8cjk2vat5t10nd37s5tf.apps.googleusercontent.com', 
-    //     offlineAccess: true, 
-    //     hostedDomain: '', 
-    //     loginHint: '', 
-    //     forceConsentPrompt: true, 
+    //     webClientId: '458566252197-f3juqgm6r2es8cjk2vat5t10nd37s5tf.apps.googleusercontent.com',
+    //     offlineAccess: true,
+    //     hostedDomain: '',
+    //     loginHint: '',
+    //     forceConsentPrompt: true,
     //   });
 
     // }
@@ -71,11 +74,12 @@ class App extends Component {
         { <Stack.Screen name="Home" component={HomeScreen}/> }
         {<Stack.Screen name="SignUp" component={SignUpContainer}/> }
         <Stack.Screen name="Login" component={Login}/>
-        <Stack.Screen name="running" component={running}/>
+        {/* <Stack.Screen name="running" component={running}/>
         <Stack.Screen name="walking" component={walking}/>
-        <Stack.Screen name="jumping" component={jumping}/>
-        <Stack.Screen name="no_activity" component={no_activity}/>
+        <Stack.Screen name="jumping" component={jumping}/> */}
+        {/* <Stack.Screen name="no_activity" component={no_activity}/> */}
         <Stack.Screen name="Activity" component={Activity}/>
+        <Stack.Screen name="Chart" component={Chart}/>
 
         {/* <Stack.Screen name="Main"  options={{headerLeft:null}} component={Main}/>*/}
         <Stack.Screen name="Terms" component={TermsCond}/>
@@ -143,7 +147,8 @@ const styles = StyleSheet.create({
     flex: 1,
     //justifyContent:"center",
     //alignItems:"center",
-    backgroundColor: '#3A54CD',
+    //backgroundColor: '#3A54CD',
+    backgroundColor: '#8E94F2',
   },
   container1: { 
     flex: 1,
@@ -164,7 +169,8 @@ const styles = StyleSheet.create({
     fontSize: 48,
     fontWeight:"bold",
     alignSelf:"center",
-    justifyContent:'center'
+    justifyContent:'center', 
+    marginTop: 100
   },
   textn: {
     color: "white",
@@ -178,7 +184,7 @@ const styles = StyleSheet.create({
     width: 200,
     alignSelf:"center",
     justifyContent:"center",
-    marginTop: 100,
+    //marginTop: 100,
     resizeMode: 'contain',
     
   }
